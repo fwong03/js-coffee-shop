@@ -52,8 +52,21 @@
     
     var myRevenueMessage = document.getElementById("revenue");
 
-    function makeCoffee(evt) 
-    {
+    function makeCoffee(evt) {
+        showCoffeeMaker();
+        setTimeout(showCoffeeMug, 1000);
+        setTimeout(showCoffeeBeans, 1500);
+    }
+
+    function showCoffeeMaker() {
+        myImage.setAttribute("src", "static/coffee_machine.jpg");
+    }
+
+    function showCoffeeBeans() {
+        myImage.setAttribute("src", "static/coffee_beans.jpg");
+    }
+
+    function showCoffeeMug() {
         myImage.setAttribute("src", "static/coffee_mug.jpg");
     }
 
