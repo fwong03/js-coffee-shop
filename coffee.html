@@ -47,14 +47,25 @@
 
 <script>
 
+    // use this dictionary in further study step
+
+    var prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot chocolate": 2.50
+    };
+
     var myImage = $("#coffee-image");    
     var myRevenueMessage = $("#revenue");
     var drinksOrdered = [];
+    var runningTotalRevenue = 0;
     var espresso = $("#espresso");
     var latte = $("#latte");
     var hotChocolate = $("#hot-chocolate");
 
     myImage.attr("src", "static/coffee_beans.jpg");
+    myRevenueMessage.html("$0.00");
 
     function makeCoffee(drinkType) {
         console.log("drinkType: " + drinkType);
@@ -65,6 +76,9 @@
 
         drinksOrdered.push(drinkType);
         console.log("drinksOrdered: " + drinksOrdered);
+
+        calculateNewTotal(drinkType);
+        updateRevenueMessage(runningTotalRevenue.toFixed(2));
     }
 
     function showCoffeeMaker() {
@@ -79,20 +93,24 @@
         myImage.attr("src", "static/coffee_mug.jpg");
     }
 
+    function updateRevenueMessage(total)
+    {
+        myRevenueMessage.html("$" + total);
+    }
+
+    function calculateNewTotal(drinkType)
+    {
+        price = prices[drinkType];
+        runningTotalRevenue += price;
+    }
+
     myImage.on('click', function() {makeCoffee("brew");} );
     espresso.on('click', function() {makeCoffee("espresso");} );
     latte.on('click', function() {makeCoffee("latte");} );
-    hotChocolate.on('click', function() {makeCoffee("hot_chocolate");} );
+    hotChocolate.on('click', function() {makeCoffee("hot chocolate");} );
 
 
-    // use this dictionary in further study step
 
-    var prices = {
-        "brew": 2.05,
-        "espresso": 3.25,
-        "latte": 4.15,
-        "hot chocolate": 2.50
-    };
 
 
 </script>
