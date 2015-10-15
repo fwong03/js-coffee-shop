@@ -43,16 +43,18 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+
 <script>
 
-
-
-    var myImage = document.getElementById("coffee-image");
-    myImage.setAttribute("src", "static/coffee_beans.jpg");
-    
-    var myRevenueMessage = document.getElementById("revenue");
-
+    var myImage = $("#coffee-image");    
+    var myRevenueMessage = $("#revenue");
     var drinksOrdered = [];
+    var espresso = $("#espresso");
+    var latte = $("#latte");
+    var hotChocolate = $("#hot-chocolate");
+
+    myImage.attr("src", "static/coffee_beans.jpg");
 
     function makeCoffee(drinkType) {
         console.log("drinkType: " + drinkType);
@@ -66,18 +68,21 @@
     }
 
     function showCoffeeMaker() {
-        myImage.setAttribute("src", "static/coffee_machine.jpg");
+        myImage.attr("src", "static/coffee_machine.jpg");
     }
 
     function showCoffeeBeans() {
-        myImage.setAttribute("src", "static/coffee_beans.jpg");
+        myImage.attr("src", "static/coffee_beans.jpg");
     }
 
     function showCoffeeMug() {
-        myImage.setAttribute("src", "static/coffee_mug.jpg");
+        myImage.attr("src", "static/coffee_mug.jpg");
     }
 
-    myImage.addEventListener('click', function() {makeCoffee("brew");} );
+    myImage.on('click', function() {makeCoffee("brew");} );
+    espresso.on('click', function() {makeCoffee("espresso");} );
+    latte.on('click', function() {makeCoffee("latte");} );
+    hotChocolate.on('click', function() {makeCoffee("hot_chocolate");} );
 
 
     // use this dictionary in further study step
