@@ -52,10 +52,17 @@
     
     var myRevenueMessage = document.getElementById("revenue");
 
-    function makeCoffee(evt) {
+    var drinksOrdered = [];
+
+    function makeCoffee(drinkType) {
+        console.log("drinkType: " + drinkType);
+
         showCoffeeMaker();
         setTimeout(showCoffeeMug, 1000);
-        setTimeout(showCoffeeBeans, 1500);
+        setTimeout(showCoffeeBeans, 2500);
+
+        drinksOrdered.push(drinkType);
+        console.log("drinksOrdered: " + drinksOrdered);
     }
 
     function showCoffeeMaker() {
@@ -70,7 +77,8 @@
         myImage.setAttribute("src", "static/coffee_mug.jpg");
     }
 
-    myImage.addEventListener('click', makeCoffee);
+    myImage.addEventListener('click', function() {makeCoffee("brew");} );
+
 
     // use this dictionary in further study step
 
