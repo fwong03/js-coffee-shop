@@ -71,8 +71,8 @@
         console.log("drinkType: " + drinkType);
 
         showCoffeeMaker();
-        setTimeout(showCoffeeMug, 1000);
-        setTimeout(showCoffeeBeans, 2500);
+        setTimeout(showCoffeeMug, 3000);
+        setTimeout(showCoffeeBeans, 6000);
 
         drinksOrdered.push(drinkType);
         console.log("drinksOrdered: " + drinksOrdered);
@@ -82,15 +82,21 @@
     }
 
     function showCoffeeMaker() {
-        myImage.attr("src", "static/coffee_machine.jpg");
+        myImage.fadeOut();
+        setTimeout(function() {myImage.attr("src", "static/coffee_machine.jpg")},400);
+        myImage.fadeIn();
     }
 
     function showCoffeeBeans() {
-        myImage.attr("src", "static/coffee_beans.jpg");
+        myImage.fadeOut();
+        setTimeout(function() {myImage.attr("src", "static/coffee_beans.jpg")},400);
+        myImage.fadeIn();
     }
 
     function showCoffeeMug() {
-        myImage.attr("src", "static/coffee_mug.jpg");
+        myImage.fadeOut();
+        setTimeout(function() {myImage.attr("src", "static/coffee_mug.jpg")},400);
+        myImage.fadeIn();
     }
 
     function updateRevenueMessage(total)
